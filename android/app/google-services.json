@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "461028648933",
+    "firebase_url": "https://devvcardriver.firebaseio.com",
+    "project_id": "devvcardriver",
+    "storage_bucket": "devvcardriver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461028648933:android:4ae4c5744893f4de",
+        "android_client_info": {
+          "package_name": "com.vcardriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461028648933-fbvjr68f56u2nrn0dklarefufp1paa1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACDntIvEIGWId8rE42cDglURWIDuplPEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461028648933-fbvjr68f56u2nrn0dklarefufp1paa1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
