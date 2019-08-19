@@ -26,8 +26,9 @@ import ConfirmOrder from '../ConfirmOrder'
 import NavBarCustom from '../../../component/NavBarCustom'
 import screenId from '../../../config/screenId';
 // import FCM, {  } from 'react-native-fcm';
+import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from 'react-native-fcm';
 import firebase from 'react-native-firebase'
-import type { Notification, NotificationOpen,FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from 'react-native-firebase';
+import type { Notification, NotificationOpen} from 'react-native-firebase';
 import {connectSocketIO} from "../../../config/request";
 import io from 'socket.io-client'
 import {Navigation} from "react-native-navigation";
@@ -270,8 +271,8 @@ class HomeMainScreen extends Component {
             }
         }
         if (values.platform === 'ios') {
-            firebase.messaging().requestPermission().then(() => console.log('granted')).catch(() => console.log('notification permission rejected'));
-            this.notificationListener = firebase.messaging().onMessage(FCMEvent.Notification, async (notif) => { // bat o trong app
+            FCM.requestPermissions().then(() => console.log('granted')).catch(() => console.log('notification permission rejected'));
+            this.notificationListener = FCM.on(FCMEvent.Notification, async (notif) => { // bat o trong app
                 console.log('----------------:' + JSON.stringify(notif))
 
                 if (notif) {
@@ -308,8 +309,7 @@ class HomeMainScreen extends Component {
             // // initial notification contains the notification that launchs the app. If user launchs app by clicking banner, the banner notification info will be here rather than through FCM.on event
             // // sometimes Android kills activity when app goes to background, and when resume it broadcasts notification before JS is run. You can use FCM.getInitialNotification() to capture those missed events.
             // // initial notification will be triggered all the time even when open app by icon so send some action identifier when you send notification
-            firebase.notifications().getInitialNotification()
-            .then((notificationOpen: NotificationOpen) => {
+            FCM.getInitialNotification().then(notif => { // bat o ngoai app khi click vao notifi
                 if (notif) {
                    // self.onClickItemNotifi(notif);
                    if (notif.local_notification) {

@@ -20,9 +20,9 @@ import ViewShadow from '../../../component/ViewShadow'
 import { PostWithToken, PostNoToken } from '../../../config/request'
 import { Toast, checkPhone } from '../../../utils/Func';
 import { observer, inject } from 'mobx-react'
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import { Navigation } from 'react-native-navigation';
-// import FCM from 'react-native-fcm'
+import FCM from 'react-native-fcm'
 let { height, width } = Dimensions.get('window')
 @inject('User')
 @observer
@@ -77,7 +77,7 @@ export default class LoginScreen extends Component {
         console.log("FCM", fcm)
         this.login(fcm)
       } else {
-        firebase.messaging().getToken().then(token => {
+        FCM.getFCMToken().then(token => {
           AsyncStorage.setItem('fcm', token)
           this.login(fcm)
         });
