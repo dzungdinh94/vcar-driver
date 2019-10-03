@@ -12,7 +12,6 @@ import {
 import { values, screenId, color, api, checkPhone } from '../../../config';
 import SimpleToast from 'react-native-simple-toast';
 import ViewShadow from '../../../component/ViewShadow'
-// import RNAccountKit, { LoginButton } from 'react-native-facebook-account-kit'
 import NavBarCustomBtnBack from '../../../component/NavBarCustomBtnBack'
 import { PostNoToken } from '../../../config/request';
 import { Navigation } from 'react-native-navigation';
